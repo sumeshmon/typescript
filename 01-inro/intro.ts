@@ -6,6 +6,6 @@ const school = {
 console.log('Welcome TS');
 
 console.log(school.IsMale);
-console.log(school.email);
+// console.log(school.email);
 
 
