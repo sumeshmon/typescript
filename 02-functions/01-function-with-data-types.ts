@@ -39,6 +39,7 @@ function user (name : string, password : string, isPaid : boolean = false){
 // console.log(user ('Sumesh', '123'));
 
 // using arrow
+// = false is not used below comsole will throw error
 const userOne = (name : string, password : string, isPaid : boolean = false) => {
     return {
         UserName : name,
@@ -48,3 +49,4 @@ const userOne = (name : string, password : string, isPaid : boolean = false) => 
 }
 console.log(userOne ('Sumesh', '123'));
 
+export{}
