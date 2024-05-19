@@ -9,3 +9,5 @@ const allGods = gods.map( (items):string => {
 })
 
 console.log(allGods);
+
+export{}
