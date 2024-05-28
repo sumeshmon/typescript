@@ -1,14 +1,17 @@
-var sumesh = {
-    dbId: 1223,
-    email: 'sumesh@ss.com',
-    userId: 123456,
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+// using extends
+var sali = {
+    isAdmin: false,
+    dbId: 999,
+    email: 'sali@ss.com',
+    userId: 777,
+    isLogged: false, // this is added additional interface.
     startTrail: function () {
-        return 'Hello';
+        return 'Hello Sali';
     },
     getCoupenCode: function (name, val) {
-        return 10;
+        return 100;
     }
 };
-console.log(sumesh);
-console.log(sumesh.getCoupenCode('SUMESH2023', 123));
-console.log(sumesh.startTrail());
+console.log(sali);
