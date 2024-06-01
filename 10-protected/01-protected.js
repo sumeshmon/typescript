@@ -1,3 +1,4 @@
+"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -13,22 +14,35 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+Object.defineProperty(exports, "__esModule", { value: true });
 var UserTwo = /** @class */ (function () {
-    function UserTwo() {
-        // private _getCourseCount : number = 1
-        this._getCourseCount = 1;
+    function UserTwo(courseCount) {
+        if (courseCount === void 0) { courseCount = 1; }
+        // Changed private to protected so it can be accessed by subclasses
+        this._courseCount = 1;
+        this._courseCount = courseCount;
     }
     return UserTwo;
 }());
-var subUser = /** @class */ (function (_super) {
-    __extends(subUser, _super);
-    function subUser() {
-        return _super !== null && _super.apply(this, arguments) || this;
+var SubUser = /** @class */ (function (_super) {
+    __extends(SubUser, _super);
+    function SubUser(courseCount, isFamily) {
+        if (courseCount === void 0) { courseCount = 1; }
+        if (isFamily === void 0) { isFamily = false; }
+        var _this = _super.call(this, courseCount) || this;
+        _this.isFamily = isFamily;
+        return _this;
     }
-    subUser.prototype.getCourseCount = function () {
-        this._getCourseCount = 6;
+    SubUser.prototype.getCourseCount = function () {
+        return this._courseCount;
     };
-    return subUser;
+    SubUser.prototype.setCourseCount = function (count) {
+        this._courseCount = count;
+    };
+    return SubUser;
 }(UserTwo));
-var user1 = new UserTwo, _a = void 0,  = _a._getCourseCount,  = _a[6];
-console.log(user1);
+// Create an instance of SubUser
+var user1 = new SubUser(2, true);
+console.log(user1.getCourseCount()); // This should print 2
+user1.setCourseCount(6);
+console.log(user1.getCourseCount()); // This should print 6
